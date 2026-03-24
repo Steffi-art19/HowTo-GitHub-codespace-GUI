@@ -7,22 +7,19 @@ int main()
     std::cout << "Zadejte prvni cislo: ";
     float a;
     std::cin >> a;
-    std::cout << "Zadejte druhe cislo: ";
-    float b;
-    std::cin >> b;
 
-    float sum = a + b;
-    float difference = a - b;
-    float product = a * b;
-    float quotient = a / b;
+    float square = a * a;
+    std::cout << "Druha mocnina cisla " << a << " je " << square << std::endl;
 
-    std::cout << "Soucet: " << sum << std::endl;
-    std::cout << "Rozdil: " << difference << std::endl;
-    std::cout << "Soucin: " << product << std::endl;
-    std::cout << "Podil: " << quotient << std::endl;
-    std::cout << "Dekuji za pouziti kalkulacky, aplikaci ukoncite libovolnou klavesou." << std::endl;
-    /* std::cin.get();
-    std::cin.get(); */
+    std::cout << "Zacina treti program" << std::endl;
 
+    double radius;
+    std::cout << "Zadejte polomer: ";
+    std::cin >> radius;
+    const double pi = 3.1415;
+    double circumference = 2 * pi * radius;
+    double area = pi * radius * radius;
+    std::cout << "Obvod kruhu je " << circumference << " cm a jeho obsah je " << area << " cm2." << std::endl;
+    
     return 0;
 }
