@@ -1,26 +1,71 @@
 #include <iostream>
-#include <string>
+#include <cmath>
 
 int main()
 {
-    std::cout << "Zadejte svuj vek: ";
+    std::cout << "Vitejte v kalkulacce" << std::endl;
+    std::string continueAnswer = "ano";
 
-    std::string input;
-    std::cin >> input;
+    while (continueAnswer == "ano")
+    {
+        std::cout << "Zadejte prvni cislo:" << std::endl;
+        float a;
+        std::cin >> a;
 
-    std::string output;
-    output = "Je ti " + input + " let.";
+        std::cout << "Zadejte druhe cislo:" << std::endl;
+        float b;
+        std::cin >> b;
 
-    std::cout << output << std::endl;
+        std::cout << "Zvolte si operaci:" << std::endl;
+        std::cout << "1 - scitani" << std::endl;
+        std::cout << "2 - odcitani" << std::endl;
+        std::cout << "3 - nasobeni" << std::endl;
+        std::cout << "4 - deleni" << std::endl;
 
-    std::cout << "Zacina druhy program" << std::endl;
+        int choice;
+        std::cin >> choice;
 
-    std::cout << "Zadejte cislo: ";
-    float a;
-    std::cin >> a;
+        float result = 0.0f;
+        bool choiceValid = true;
 
-    float b = a * a;
-    std::cout << "Druha mocnina cisla " << a << " je " << b << std::endl;
+        switch (choice)
+        {
+        case 1:
+            result = a + b;
+            break;
+
+        case 2:
+            result = a - b;
+            break;
+
+        case 3:
+            result = a * b;
+            break;
+
+        case 4:
+            result = a / b;
+            break;
+
+        default:
+            // neplatna volba
+            choiceValid = false;
+            break;
+        }
+
+        if (choiceValid)
+        {
+            std::cout << "Vysledek: " << result << std::endl;
+        }
+        else
+        {
+            std::cout << "Neplatna volba" << std::endl;
+        }
+
+        std::cout << "Prejete si zadat dalsi priklad? [ano/ne]" << std::endl;
+        std::cin >> continueAnswer;
+    }
+
+    std::cout << "Dekuji za pouziti kalkulacky, aplikaci ukoncite libovolnou klavesou." << std::endl;
 
     return 0;
 }
