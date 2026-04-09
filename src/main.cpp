@@ -1,71 +1,21 @@
 #include <iostream>
-#include <cmath>
+#include <vector>
+#include <array>
 
 int main()
 {
-    std::cout << "Vitejte v kalkulacce" << std::endl;
-    std::string continueAnswer = "ano";
 
-    while (continueAnswer == "ano")
+    std::array<std::array<int, 3>, 2> matrix = {{{1, 2, 3},
+                                                 {4, 5, 6}}};
+   
+
+    for (size_t i = 0; i < matrix.size(); i++)
     {
-        std::cout << "Zadejte prvni cislo:" << std::endl;
-        float a;
-        std::cin >> a;
+        for (size_t j = 0; j < matrix[i].size(); j++)
+            std::cout << matrix[i][j] << " ";
 
-        std::cout << "Zadejte druhe cislo:" << std::endl;
-        float b;
-        std::cin >> b;
-
-        std::cout << "Zvolte si operaci:" << std::endl;
-        std::cout << "1 - scitani" << std::endl;
-        std::cout << "2 - odcitani" << std::endl;
-        std::cout << "3 - nasobeni" << std::endl;
-        std::cout << "4 - deleni" << std::endl;
-
-        int choice;
-        std::cin >> choice;
-
-        float result = 0.0f;
-        bool choiceValid = true;
-
-        switch (choice)
-        {
-        case 1:
-            result = a + b;
-            break;
-
-        case 2:
-            result = a - b;
-            break;
-
-        case 3:
-            result = a * b;
-            break;
-
-        case 4:
-            result = a / b;
-            break;
-
-        default:
-            // neplatna volba
-            choiceValid = false;
-            break;
-        }
-
-        if (choiceValid)
-        {
-            std::cout << "Vysledek: " << result << std::endl;
-        }
-        else
-        {
-            std::cout << "Neplatna volba" << std::endl;
-        }
-
-        std::cout << "Prejete si zadat dalsi priklad? [ano/ne]" << std::endl;
-        std::cin >> continueAnswer;
+        std::cout << std::endl;
     }
-
-    std::cout << "Dekuji za pouziti kalkulacky, aplikaci ukoncite libovolnou klavesou." << std::endl;
 
     return 0;
 }
