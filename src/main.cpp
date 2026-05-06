@@ -1,34 +1,24 @@
 #include <iostream>
 #include <string>
+using namespace std;
 
-class User
-{
-public:
-    User(const std::string& name, int age, const std::string& street)
-        : name_(name), age_(age), street_(street)
-    {
+long long faktorial(int n) {
+    if (n < 0) {
+        return -1; // chyba: faktoriál není definován pro záporná čísla
     }
-
-    void printUser() const
-    {
-        std::cout << "Name: " << name_ << std::endl;
-        std::cout << "Age: " << age_ << std::endl;
-        std::cout << "Street: " << street_ << std::endl << std::endl;
+    
+    long long vysledek = 1;
+    for (int i = 2; i <= n; i++) {
+        vysledek *= i;
     }
-
-private:
-    std::string name_;
-    int age_;
-    std::string street_;
-};
+    return vysledek;
+}
 
 int main()
 {
-    User user1("Tomas Marny", 33, "Sikma 5");
-    User user2("Josef Novy", 28, "Ve Svahu 8");
-
-    user1.printUser();
-    user2.printUser();
+    cout << "Faktoriál 5: " << faktorial(5) << endl;  // 120
+    cout << "Faktoriál 10: " << faktorial(10) << endl; // 3628800
+    cout << "Faktoriál 0: " << faktorial(0) << endl;   // 1
 
     return 0;
 }
