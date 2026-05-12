@@ -1,24 +1,52 @@
 #include <iostream>
-#include <string>
-using namespace std;
+#include <vector>
 
-long long faktorial(int n) {
-    if (n < 0) {
-        return -1; // chyba: faktoriál není definován pro záporná čísla
+std::vector<double> multiplyMatrixVector(
+        const std::vector<std::vector<double>>& matrix,
+        const std::vector<double>& vec)
+{
+    if (matrix.empty() || matrix[0].empty())
+        return {};
+
+    size_t cols = matrix[0].size();
+
+    if (cols != vec.size())
+        return {};
+
+    std::vector<double> result(matrix.size(), 0.0);
+
+    for (size_t i = 0; i < matrix.size(); ++i) {
+        if (matrix[i].size() != cols)
+            return {};
+
+        for (size_t j = 0; j < cols; ++j) {
+            result[i] += matrix[i][j] * vec[j];
+        }
     }
-    
-    long long vysledek = 1;
-    for (int i = 2; i <= n; i++) {
-        vysledek *= i;
-    }
-    return vysledek;
+
+    return result;
 }
 
-int main()
-{
-    cout << "Faktoriál 5: " << faktorial(5) << endl;  // 120
-    cout << "Faktoriál 10: " << faktorial(10) << endl; // 3628800
-    cout << "Faktoriál 0: " << faktorial(0) << endl;   // 1
+int main() {
+    std::vector<std::vector<double>> matrix = {
+        {1, 2, 3},
+        {4, 5, 6}
+    };
+
+    std::vector<double> vec = {7, 8, 9};
+
+    std::vector<double> result = multiplyMatrixVector(matrix, vec);
+
+    if (result.empty()) {
+        std::cout << "Chyba: neplatne rozmery matice nebo vektoru.\n";
+        return 1;
+    }
+
+    std::cout << "Vysledek: ";
+    for (double x : result) {
+        std::cout << x << " ";
+    }
+    std::cout << "\n";
 
     return 0;
 }
