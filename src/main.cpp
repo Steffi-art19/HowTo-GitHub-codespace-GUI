@@ -29,11 +29,11 @@ std::vector<double> multiplyMatrixVector(
 
 int main() {
     std::vector<std::vector<double>> matrix = {
-        {1, 2, 3},
-        {4, 5, 6}
+        {1.0, 2.0, 3.0},
+        {4.0, 5.0, 6.0}
     };
 
-    std::vector<double> vec = {7, 8, 9};
+    std::vector<double> vec = {1.0, 1.0, 1.0};
 
     std::vector<double> result = multiplyMatrixVector(matrix, vec);
 
