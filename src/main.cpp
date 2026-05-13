@@ -75,9 +75,9 @@ public:
 int main() {
     UserList list;
 
-    list.addUser(User("Alice", 20, "Květová 9"));
-    list.addUser(User("Bob", 25, "Javorová 12"));
-    list.addUser(User("Charlie", 30, "Lipová 3"));
+    list.addUser(User("Karel", 20, "Kvetova 8"));
+    list.addUser(User("Gregor", 25, "Javorova 12"));
+    list.addUser(User("Milada", 30, "Lipova 5"));
 
     std::cout << "Puvodni uzivatele:\n";
     list.printAll();
